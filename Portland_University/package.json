@@ -1,0 +1,18 @@
+{
+    "name": "Portland_University",
+    "version": "1.0.0",
+    "description": "Data base that collects information about the students and professors",
+    "main": "main.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Patrick Daniels",
+    "license": "ISC",
+    "dependencies": {
+        "body-parser": "^1.13.3",
+        "express": "^4.17.1",
+        "express-handlebars": "^5.2.0",
+        "express-session": "^1.11.3",
+        "mysql": "^2.18.1"
+    }
+}

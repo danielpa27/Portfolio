@@ -1,0 +1,88 @@
+<div class="container">
+    <div class="row">
+        <form class="col-md-5" id="Add" action="/enrollments" method="post">
+            <fieldset>
+                <legend>Add Enrollment</legend>
+                <div class="form-group">
+                    <label for="cName">Class Name: </label>
+                    <input class="form-control" type="text" name="cName" id="cName">
+                </div>
+
+                <div class="form-group">
+                    <label for="sfName">Student First Name: </label>
+                    <input class="form-control" type="text" name="sfName" id="sfName">
+                </div>
+
+                <div class="form-group">
+                    <label for="slName">Student Last Name: </label>
+                    <input class="form-control" type="text" name="slName" id="slName">
+                </div>
+
+                <div class="form-group">
+                    <label for="grade">Grade: </label>
+                    <input class="form-control" type="text" name="grade" id="grade">
+                </div>
+                <br>
+                <div class="form-group">
+                    <input class="btn btn-dark" type="submit" value="Add" id="addSub">
+                </div>
+            </fieldset>
+        </form>
+
+        <div class="col-md-2"></div>
+
+        <form class="col-md-5" id='Search'>
+            <fieldset>
+                <legend>Search Enrollments</legend>
+                <div class="form-group">
+                    <label for="sCid"> By Class Name: </label>
+                    <input class="form-control" type="text" name="sCname" id="sCname">
+                    <br>
+                    <input class="btn btn-dark" value="Search" type="button" onclick="searchEnrollByClass()">
+                </div>
+                <br>
+                <div class="form-group">
+
+                    <label for="sName">By Student Name: </label>
+                    <input class="form-control" type="text" name="sName" id="sName" placeholder="Last, First" required>
+                    <br>
+                    <input class="btn btn-dark" value="Search" type="button" onclick="searchEnrollByStudentName()">
+                </div>
+                <br>
+                <div class="form-group">
+                    <input class="btn btn-dark" type="button" value="All Enrollments" id='getAll'
+                        onclick="window.location.href='/enrollments'">
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+
+<table class="table table-striped mt-5" id="searchResults">
+    <thead>
+        <tr class="table-dark">
+            <th scope="col">Student Name</th>
+            <th scope="col">Student ID </th>
+            <th scope="col">Class Name </th>
+            <th scope="col">Class ID </th>
+            <th scope="col">Grade</th>
+            <th scope="col">Update</th>
+            <th scope="col">Delete</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {{#each enrolls}}
+        <tr>
+            <th scope="row">{{sName}}</th>
+            <td>{{sid}}</td>
+            <td>{{cName}}</td>
+            <td>{{cid}}</td>
+            <td>{{grade}}</td>
+            <td><a type="button" class="btn btn-dark" href="/enrollments/{{cid}}&{{sid}}">Update</td>
+            <td><input type="button" class="btn btn-dark" value="Delete" onclick="deleteEnroll({{cid}}, {{sid}})"></td>
+        </tr>
+        {{/each}}
+    </tbody>
+
+</table>

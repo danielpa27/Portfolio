@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="row">
+        <form class="col-md-5" id="update-enroll">
+            <fieldset>
+                <legend>Update Enrollment</legend>
+
+                <div class="form-group" action="/enrollments" method="post">
+                    <label for="sid">Student ID:</label>
+                    <input value="{{enroll.sid}}" class="form-control" type="text" name="sid" id="sid">
+                </div>
+
+                <div class="form-group">
+                    <label for="sfName">First Name:</label>
+                    <input disabled value="{{enroll.first_name}}" class="form-control" type="text" name="sfName"
+                        id="sfName">
+                </div>
+
+                <div class="form-group">
+                    <label for="slName">Last Name:</label>
+                    <input disabled value="{{enroll.last_name}}" class="form-control" type="text" name="slName"
+                        id="slName">
+                </div>
+
+                <div class="form-group">
+                    <label for="cid">Class ID:</label>
+                    <input value="{{enroll.cid}}" class="form-control" type="text" name="cid" id="cid">
+                </div>
+
+                <div class="form-group">
+                    <label for="cName">Class Name: </label>
+                    <input disabled value="{{enroll.class}}" class="form-control" type="text" name="cName" id="cName">
+                </div>
+
+                <div class="form-group">
+                    <label for="grade">Grade: </label>
+                    <input value="{{enroll.grade}}" class="form-control" type="text" name="grade" id="grade">
+                </div>
+                <br>
+
+                <div class="form-group">
+                    <button onclick="updateEnroll({{enroll.cid}}, {{enroll.sid}})" class="btn btn-dark"
+                        id="update">Update</button>
+                </div>
+            </fieldset>
+        </form>
+
+
+    </div>

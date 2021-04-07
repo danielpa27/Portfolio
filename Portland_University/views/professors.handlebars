@@ -1,0 +1,80 @@
+<div class="container">
+    <div class="row">
+        <form class="col-md-5" id="Add" action="/professors" method="post">
+            <fieldset>
+                <legend>Add New Professor</legend>
+                <div class="form-group">
+                    <label for="fname">First Name: </label>
+                    <input class="form-control" type="text" name="fname" id="fname">
+                </div>
+
+                <div class="form-group">
+                    <label for="lname">Last Name: </label>
+                    <input class="form-control" type="text" name="lname" id="lname">
+                </div>
+
+                <div class="form-group">
+                    <label for="college">College: </label>
+                    <input class="form-control" type="text" name="college" id="college">
+                </div>
+
+                <div class="form-group">
+                    <label for="tenured">Tenured: </label>
+                    <input class="form-control" type="text" name="tenured" id="tenured" placeholder="Yes/No">
+                </div>
+                <br>
+                <div class="form-group">
+                    <input class="btn btn-dark" type="submit" value="Add" id="addSub">
+                </div>
+            </fieldset>
+        </form>
+
+        <div class="col-md-2"></div>
+
+        <form class="col-md-5" id='Search'>
+            <fieldset>
+                <legend>Search Professors</legend>
+
+                <div class="form-group">
+                    <label for="sLName">Last Name: </label>
+                    <input class="form-control" type="text" name="sLName" id="sLName">
+                </div>
+                <br>
+                <div class="form-group">
+                    <input class="btn btn-dark" type="button" value="Search" id='searchClass'
+                        onclick="searchProfByName()">
+                </div>
+                <br>
+                <div class="form-group">
+                    <input class="btn btn-dark" type="button" value="All Professors" id='getAll'
+                        onclick="window.location.href='/professors'">
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+
+<table class="table table-striped mt-5" id="searchResults">
+    <thead>
+        <tr class="table-dark">
+            <th scope="col">ID</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">First Name</th>
+            <th scope="col">College</th>
+            <th scope="col">Tenured</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {{#each profs}}
+        <tr>
+            <th scope="row">{{id}}</th>
+            <td>{{last_name}}</td>
+            <td>{{first_name}}</td>
+            <td>{{college}}</td>
+            <td>{{tenured}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+
+</table>

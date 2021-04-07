@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="row">
+        <form class="col-md-5" id="Add" action="/majors" method="post">
+            <fieldset>
+                <legend>Add New Major</legend>
+
+                <div class="form-group">
+                    <label for="name">Name: </label>
+                    <input class="form-control" type="text" name="name" id="name">
+                </div>
+
+                <div class="form-group">
+                    <label for="colName">College: </label>
+                    <input class="form-control" type="text" name="colName" id="colName">
+                </div>
+
+                <div class="form-group">
+                    <label for="undergrad">Undergraduate: </label>
+                    <input class="form-control" type="text" name="undergrad" id="undergrad" placeholder="Yes/No">
+                </div>
+                <br>
+                <div class="form-group">
+                    <input class="btn btn-dark" type="submit" value="Add" id="addSub">
+                </div>
+            </fieldset>
+        </form>
+
+
+    </div>
+</div>
+
+<table class="table table-striped mt-5" id="searchResults">
+    <thead>
+        <tr class="table-dark">
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">College</th>
+            <th scope="col">Undergraduate</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {{#each majs}}
+        <tr>
+            <th scope="row">{{major_id}}</th>
+            <td>{{name}}</td>
+            <td>{{college}}</td>
+            <td>{{undergraduate}}</td>
+        </tr>
+        {{/each}}
+    </tbody>

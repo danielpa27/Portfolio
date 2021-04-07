@@ -1,0 +1,95 @@
+<div class="container">
+    <div class="row">
+        <form class="col-md-5" id="Add" action="/classes" method="post">
+            <fieldset>
+                <legend>Add Class</legend>
+
+                <div class="form-group">
+                    <label for="name">Name: </label>
+                    <input class="form-control" type="text" name="name" id="name">
+                </div>
+
+                <div class="form-group">
+                    <label for="capacity">Capacity: </label>
+                    <input class="form-control" type="text" name="capacity" id="capacity">
+                </div>
+
+
+                <div class="form-group">
+                    <label for="major">Major: </label>
+                    <input class="form-control" type="text" name="major" id="major">
+                </div>
+
+                <div class="form-group">
+                    <label for="fname">Professor First Name: </label>
+                    <input class="form-control" type="text" name="fname" id="fname">
+                </div>
+
+                <div class="form-group">
+                    <label for="lname">Professor Last Name: </label>
+                    <input class="form-control" type="text" name="lname" id="lname">
+                </div>
+                <br>
+                <div class="form-group">
+                    <input class="btn btn-dark" type="submit" value="Add" id="addSub">
+                </div>
+            </fieldset>
+        </form>
+
+        <div class="col-md-2"></div>
+
+        <form class="col-md-5" id='Search'>
+            <fieldset>
+                <legend>Search Classes</legend>
+                <select class="form-select mb-3" id='sMajor' name="sMajor">
+                    <option disabled selected hidden>By Major</option>
+                    {{#each majors}}
+                    <option value="{{id}}">{{name}}</option>
+                    {{/each}}
+                </select>
+                <input class="btn btn-dark" type="button" value="Search" onclick="searchClassByMajor()">
+                <br>
+                <div class="form-group">
+                    <br>
+                    <label for="sName">By Name: </label>
+                    <input class="form-control" type="text" name="sName" id="sName">
+                    <br>
+                    <input class="btn btn-dark" value="Search" type="button" onclick="searchClassByName()">
+                </div>
+                <br>
+                <div class="form-group">
+                    <input class="btn btn-dark" type="button" value="All Classes" id='getAll'
+                        onclick="window.location.href='/classes'">
+                </div>
+            </fieldset>
+        </form>
+
+
+
+    </div>
+</div>
+
+<table class="table table-striped mt-5" id="searchResults">
+    <thead>
+        <tr class="table-dark">
+            <th>ID</th>
+            <th>Name</th>
+            <th>Capacity</th>
+            <th>Major</th>
+            <th>Professor</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {{#each classes}}
+        <tr>
+            <th scope="row">{{id}}</th>
+            <td>{{name}}</td>
+            <td>{{capacity}}</td>
+            <td>{{major}}</td>
+            <td>{{professor}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+
+</table>

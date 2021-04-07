@@ -1,0 +1,60 @@
+<div class="container">
+    <div class="row">
+        <form class="col-md-5" id="Add" action="/students" method="post">
+            <fieldset>
+                <legend>Add New Student</legend>
+                <div class="form-group">
+                    <label for="fname">First Name: </label>
+                    <input class="form-control" type="text" name="fname" id="fname" required>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="lname">Last Name: </label>
+                    <input class="form-control" type="text" name="lname" id="lname" required>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="gpa">GPA: </label>
+                    <input class="form-control" type="text" name="gpa" id="gpa" required>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="major">Major: </label>
+                    <input class="form-control" type="text" name="major" id="major">
+                </div>
+                <br>
+                <div class="form-group">
+                    <input class="btn btn-dark" type="submit" value="Add" id="addSub" required>
+                </div>
+            </fieldset>
+        </form>
+
+        <div class="col-md-2"></div>
+
+    </div>
+</div>
+
+<table class="table table-striped mt-5" id="searchResults">
+    <thead>
+        <tr class="table-dark">
+            <th>Student ID </th>
+            <th>Last Name </th>
+            <th>First Name</th>
+            <th>GPA</th>
+            <th>Major</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {{#each students}}
+        <tr>
+            <th scope="row">{{id}}</th>
+            <td>{{lname}}</td>
+            <td>{{fname}}</td>
+            <td>{{gpa}}</td>
+            <td>{{major}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+
+</table>
